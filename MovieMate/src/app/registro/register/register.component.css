@@ -1,0 +1,117 @@
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, sans-serif;
+  height: 100vh;
+  background: url('https://www.businessinsider.es/sites/navi.axelspringer.es/public/media/image/2023/02/filmin-2957152.jpg') no-repeat center center;
+  background-size: cover;
+  position: relative;
+}
+
+.background-blur {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  filter: blur(8px); /* Ajusta el valor según lo necesites */
+  z-index: -1;
+}
+
+.form-container,
+.register-container {
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  z-index: 1;
+  width: 500px; /* Hacer el contenedor más ancho */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h2 {
+  margin-bottom: 30px;
+  text-align: center;
+  font-size: 24px;
+}
+
+.form-group {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+label {
+  margin-bottom: 10px;
+  display: block;
+  font-size: 14px;
+}
+
+input[type="text"],
+input[type="name"],
+input[type="apellido"],
+input[type="correo"],
+input[type="password"] {
+  width: 400px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background: #333;
+  color: white;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+  outline: none;
+  border-color: #cc00ff;
+}
+
+button {
+  background-color: #cc00ff73;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  width: 100%;
+  margin-bottom: 20px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #eca2ff73;
+}
+
+.alert {
+  background-color: #333;
+  padding: 10px;
+  border-radius: 5px;
+  color: #00ff00;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.register-button {
+  background-color: #ffcc00ca; /* Amarillo */
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  width: 100%;
+  margin-bottom: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.register-button:hover {
+  background-color: #ffcc66; /* Amarillo más claro para el efecto hover */
+}

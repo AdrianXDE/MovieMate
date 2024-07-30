@@ -1,0 +1,33 @@
+<body>
+  <div class="background-blur"></div>
+  <div class="form-container register-container">
+    <h2>Registro MovieMate</h2>
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="name">Nombre:</label>
+        <input id="name" type="text" formControlName="name" autocomplete="given-name" placeholder="Ingresa tu nombre" />
+      </div>
+      <div class="form-group">
+        <label for="apellido">Apellido:</label>
+        <input id="apellido" type="text" formControlName="apellido" autocomplete="family-name" placeholder="Ingresa tu apellido" />
+      </div>
+      <div class="form-group">
+        <label for="correo">Correo:</label>
+        <input id="correo" type="correo" formControlName="correo" autocomplete="email" placeholder="Ingresa tu correo electrónico" />
+      </div>
+      <div class="form-group">
+        <label for="contraseña">Contraseña:</label>
+        <input id="contraseña" type="password" formControlName="contraseña" autocomplete="new-password" placeholder="Crea una contraseña" />
+      </div>
+    
+      <button type="submit" [disabled]="registerForm.invalid">Registrarse</button>
+    </form>
+
+    <button *ngIf="userRegistered" class="register-button" (click)="goToLogin()">Inicio de Sesión</button>
+    <div *ngIf="userRegistered" class="alert">
+      Usuario registrado con éxito.
+    </div>
+  </div>
+</body>
+
+

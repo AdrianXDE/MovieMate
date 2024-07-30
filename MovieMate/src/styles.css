@@ -1,0 +1,23 @@
+/* You can add global styles to this file, and also import other style files */
+
+body{
+    background-color: #000000;
+}
+
+
+h1,h2,h3,h4,h5{
+font-weight: 200;
+color:#F8EEF1;
+}
+
+p{
+    color:#F8EEF1;
+}
+
+hr{
+    color:#F8EEF1;
+}
+
+.cursor{
+    cursor:pointer;
+}

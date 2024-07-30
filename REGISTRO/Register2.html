@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario con Fondo Difuminado</title>
+    <script>
+        window.fbAsyncInit = function () {
+            FB.init({
+                appId: 'TU_APP_ID', // Reemplaza con tu App ID de Facebook
+                cookie: true,
+                xfbml: true,
+                version: 'v12.0'
+            });
+            FB.AppEvents.logPageView();
+        };
+
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) { return; }
+            js = d.createElement(s); js.id = id;
+            js.src = "https://connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        body {
+            background-image: url('https://media.es.wired.com/photos/65cbe59aaf248cc99f8f4f6a/16:9/w_1920,c_limit/Series%20de%20Prime%20Video.jpeg');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .background-blur {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            backdrop-filter: blur(6px) grayscale(40%);
+            z-index: -1;
+        }
+
+        .card {
+            z-index: 1;
+        }
+
+        .card-custom {
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+        }
+
+        .card-custom1 {
+            background-color: rgba(43, 0, 255, 0.8);
+            color: white;
+            backdrop-filter: blur(3px);
+        }
+
+        .card-custom11 {
+            background-color: rgba(255, 255, 255, 0.8);
+            color: rgb(240, 240, 240);
+            padding: 0; /* Quitar el padding para que el video ocupe todo el espacio */
+            backdrop-filter: blur(3px);
+        }
+
+        .card-custom .card-header {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .embed-responsive {
+            position: relative;
+            display: block;
+            width: 100%;
+            padding: 0; /* Quitar el padding para que el video ocupe todo el espacio */
+            overflow: hidden;
+        }
+
+        .embed-responsive::before {
+            display: block;
+            content: "";
+        }
+
+        .embed-responsive-16by9::before {
+            padding-top: 56.25%; /* Proporción 16:9 */
+        }
+
+        .embed-responsive-item {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .video-container {
+            width: 100%;
+            max-width: 600px; /* Ajusta el ancho máximo del contenedor según tus necesidades */
+            margin: 0 auto; /* Centra el contenedor horizontalmente */
+            overflow: hidden; /* Evita que el video sobresalga del contenedor */
+            
+        }
+
+        video {
+            display: block; /* Asegura que el video se comporte como un bloque */
+            width: 100%; /* Ocupa el 100% del ancho del contenedor */
+            height: auto; /* Ajusta automáticamente la altura proporcionalmente */
+        }
+
+        .hover-container {
+            position: relative;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .hover-container img,
+        .hover-container video {
+            width: 100%;
+            display: block;
+            
+            height: 410px;
+
+        }
+
+        .hover-container video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+
+        .hover-container:hover video {
+            opacity: 1;
+            height: auto;
+
+        }
+
+        .hover-container:hover img {
+            opacity: 0;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="background-blur"></div>
+    <div class="container d-flex justify-content-center align-items-center min-vh-100">
+        <div class="row">
+            <div class="col-md-6 mb-4">
+                <div class="card card-custom shadow mw-0" style="max-width: 900px;">
+                    <img class="card-img-top"
+                        src="https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/media/image/2016/06/607612-proximas-peliculas-pixar-despues-buscando-dory.jpg?tf=3840x"
+                        alt="Card image cap">
+                    <div class="card-body">
+                        <form onsubmit="return login()">
+                            <h2>REGISTRA TUS DATOS</h2>
+                            <br>
+                            <label class="form-label text-white" for="identificador">INGRESE SU NOMBRE</label>
+                            <input type="text" class="form-control my-2" id="identificador" name="identificador">
+                            <label class="form-label text-white" for="password">INGRESE SU CORREO</label>
+                            <input type="text" class="form-control" id="correo" name="correo">
+                            <div id="resultado" class="visually-hidden text-center text-danger fw-bold"></div>
+                            <input type="submit" class="btn btn-outline-warning mt-4 px-4 d-block mx-auto" value="Enviar">
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mb-4">
+                <div class="card card-custom1 shadow mw-0" style="max-width: 600px;">
+                    <div class="card-body d-flex justify-content-center align-items-center">
+                        <div class="fb-login-button" data-width="" data-size="large" data-button-type="login_with"
+                            data-layout="default" data-auto-logout-link="false" data-use-continue-as="false"></div>
+                    </div>
+                </div>
+                <div class="hover-container" style="max-width: 600px;">
+                    <img src="https://images.pagina12.com.ar/styles/focal_content_1200x1050/public/2024-03/821640-pixar-202-201.jpg?h=6a7a2d6d&itok=5QTFaZUf" alt="Placeholder Image">
+                    <video src="https://www.w3schools.com/html/mov_bbb.mp4" muted loop></video>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.querySelector('.hover-container').addEventListener('mouseover', function() {
+            var video = this.querySelector('video');
+            video.play();
+        });
+
+        document.querySelector('.hover-container').addEventListener('mouseout', function() {
+            var video = this.querySelector('video');
+            video.pause();
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>

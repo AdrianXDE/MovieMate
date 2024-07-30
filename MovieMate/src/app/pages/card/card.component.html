@@ -1,0 +1,58 @@
+<div class="Psicodelica">
+    <h1>Gracias Por su compra</h1>
+</div>
+
+<div class="container">
+    <div class="col1">
+        <div class="card" [ngClass]="{ 'flipped': isFlipped }">
+            <div class="front" [ngStyle]="{ 'background-color': cardColor }">
+                <div class="type">
+                    <img class="bankid" [src]="cardImage" />
+                </div>
+                <span class="chip"></span>
+                <span class="card_number">{{ cardNumberMasked }}</span>
+                <div class="date"><span class="date_value">{{ cardExpiry }}</span></div>
+                <span class="fullname">{{ cardHolder }}</span>
+            </div>
+            <div class="back">
+                <div class="magnetic"></div>
+                <div class="bar"></div>
+                <span class="seccode">{{ cardCVC }}</span>
+                <span class="chip"></span>
+                <span class="disclaimer">This card is property of Random Bank of Random corporation. <br> If found please return to Random Bank of Random corporation - 21968 Paris, Verdi Street, 34 </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="col2">
+        <label>Card Number</label>
+        <input class="number" type="text" maxlength="19" (input)="updateCardNumber($event)" (focus)="flipCard(true)" (blur)="flipCard(false)" />
+        <label>Cardholder name</label>
+        <input class="inputname" type="text" (input)="updateCardHolder($event)" />
+        <label>Expiry date</label>
+        <input class="expire" type="text" placeholder="MM / YYYY" (input)="updateCardExpiry($event)" />
+        <label>Security Number</label>
+        <input class="ccv" type="text" maxlength="3" (input)="updateCardCVC($event)" (focus)="flipCard(true)" (blur)="flipCard(false)" />
+        <button class="buy" (click)="pagar()"><i class="material-icons">$150</i> Pagar</button>
+    </div>
+
+    <div class="buttons">
+        <button class="btn btn-outline-info float-right" (click)="regresar()">Regresar</button>
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false" style="background-color:transparent ; border: transparent;">
+                Metodo de Pago
+              </button>
+              <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
+                <li><a class="dropdown-item active" href="Card">Credito</a></li>
+                <br>
+                <li><a class="dropdown-item" href="Card">Débito</a></li>
+              </ul>
+        </div>
+    </div>
+</div>
+
+<!-- Notification Container -->
+<div id="notification" class="notification hidden">
+    Gracias por su pago
+    <img src="https://qr-codes-svg.s3.amazonaws.com/VzHGpU.svg?1719778885486" alt="Imagen de agradecimiento" class="notification-image">
+</div>

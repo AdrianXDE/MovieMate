@@ -1,0 +1,14 @@
+.navbar {
+  background-color: transparent;
+  color: white;
+}
+
+.navbar a {
+  color: white;
+  text-align: center; /* O ajusta según la estructura HTML */
+}
+
+.navbar a:hover {
+  background-color: #6b4eaa71;
+  color: white;
+}

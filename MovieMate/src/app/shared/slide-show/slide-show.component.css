@@ -1,0 +1,18 @@
+.swiper-slide{
+   width: 100%;
+   height: 430px;
+  }
+
+  .swiper-button-prev,.swiper-button-next{
+    color:beige;
+  }
+
+  
+  .movie-description{
+    background-color: rgba(0, 0, 0, 0.215);
+    bottom: 0;
+    padding: 5px 30px;
+    position: absolute;
+    width: 100%;
+  }
+    

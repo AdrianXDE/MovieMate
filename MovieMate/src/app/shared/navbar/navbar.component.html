@@ -1,0 +1,17 @@
+<nav class="navbar navbar-dark" style="background-color:#6b4eaa17;">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/home">MovieMate</a>
+      <a class="navbar-brand" href="/home">Home</a>
+      <a class="navbar-brand" href="/compra">Compra Boletos</a>
+      <a class="navbar-brand" href="/historial-compras">Historial Boletos</a>
+      <div class="d-flex">  
+        <form class="d-flex">
+         
+            <input #txtBuscar class="form-control me-3" type="search" (keyup.enter)="buscarPelicula(txtBuscar.value)" placeholder="Buscar pelicula" aria-label="Search">
+            <!--El botón-->
+            <button class="btn btn-outline-light" type="submit"  (click)="buscarPelicula(txtBuscar.value)" >Buscar</button>
+          </form>
+      </div>
+      
+    </div>
+  </nav>

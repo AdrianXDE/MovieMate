@@ -1,0 +1,34 @@
+<div class="container">
+    <h2>Historial de Compras</h2>
+    <div class="search-bar">
+      <input type="text" [(ngModel)]="correo" placeholder="Ingresa tu correo">
+      <button (click)="obtenerHistorial()">Buscar</button>
+    </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Cine</th>
+          <th>Película</th>
+          <th>Hora</th>
+          <th>Número de Boletos</th>
+          <th>Precio</th>
+          <th>Fecha</th>
+          <th>Correo</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let compra of historial; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ compra.cine }}</td>
+          <td>{{ compra.pelicula }}</td>
+          <td>{{ compra.hora }}</td>
+          <td>{{ compra.numeroBoletos }}</td>
+          <td>{{ compra.precio }}</td>
+          <td>{{ compra.fecha | date }}</td>
+          <td>{{ compra.correo }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

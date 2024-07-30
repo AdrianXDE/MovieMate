@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login con Facebook y Google</title>
+  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <script>
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId      : 'TU_APP_ID',
+        cookie     : true,
+        xfbml      : true,
+        version    : 'v12.0'
+      });
+      FB.AppEvents.logPageView();   
+    };
+
+    function checkLoginState() {
+      FB.getLoginStatus(function(response) {
+        statusChangeCallback(response);
+      });
+    }
+
+    function statusChangeCallback(response) {
+      if (response.status === 'connected') {
+        console.log('Bienvenido! ID: ' + response.authResponse.userID);
+      } else {
+        console.log('Usuario no autenticado');
+      }
+    }
+
+    function onSignIn(googleUser) {
+      var profile = googleUser.getBasicProfile();
+      console.log('ID: ' + profile.getId());
+      console.log('Name: ' + profile.getName());
+      console.log('Image URL: ' + profile.getImageUrl());
+      console.log('Email: ' + profile.getEmail());
+      var id_token = googleUser.getAuthResponse().id_token;
+      console.log('ID Token: ' + id_token);
+    }
+  </script>
+</head>
+<body>
+  <h1>Login con Facebook y Google</h1>
+
+  <div class="fb-login-button" data-width="" data-size="large" data-button-type="login_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="false" onlogin="checkLoginState();"></div>
+
+  <div class="g-signin2" data-onsuccess="onSignIn"></div>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Compra de Boletos</title>
+</head>
+<body>
+    <div class="background-blur"></div>
+    <div class="form-container">
+      <img src="https://cdn-icons-png.freepik.com/512/980/980403.png" alt="Regresar" class="back-button" (click)="goBack()">
+        <form class="ticket-form" (ngSubmit)="onSubmit()" #ticketForm="ngForm">
+            <h2>MOVIEMATE BOLETOS</h2>
+            <div class="form-group">
+                <label for="cine">Cine</label>
+                <select id="cine" [(ngModel)]="ticket.cine" name="cine" required>
+                    <option value="" disabled selected>Selecciona un cine</option>
+                    <option value="cine1">Cinepolis</option>
+                    <option value="cine2">CineMex</option>
+                    <option value="cine3">Siglo XXI</option>
+                    <option value="cine4">CineREX</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="pelicula">Película</label>
+                <select id="pelicula" [(ngModel)]="ticket.pelicula" name="pelicula" required>
+                    <option value="" disabled selected>Selecciona una película</option>
+                    <option value="Pelicula 1">DeadPool y Wolverine</option>
+                    <option value="Pelicula|2">El Garras y el Spiderman De Tianguis</option>
+                    <option value="Pelicula 3">Cars 3</option>
+                    <option value="Pelicula 4">Las Flipantes Aventuras del Rayo y su oxidado amigo el Tomás Martin</option>
+                    <option value="Pelicula 5">Una Pelicula de Huevos</option>
+                    <option value="Película 6">Intensamente LGBT Version</option>
+                    <option value="Pelicula 7">Mi Villano Favorito IV (Angular)</option>
+                    <option value="Pelicula 8">Laravel en un minuto o menos (La Mayor parte de los usuarios sale llorando de la Sala)</option>
+                    <option value="Película 9">Base de Datos -El Ataque de los triggers-</option>
+                    <option value="Pelicula 10">Base de Datos II -La Llave Maestra (Acceso Denegado)</option>
+                    <option value="Pelicula 11">Diseño Web Parcial II - El Robo Perfecto - By Samuel Chim Alias Simba</option>
+                    <option value="Pelicula 12">[ERROR] NG8001 / Pelicula de Terror / </option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="hora">Hora</label>
+                <select id="hora" [(ngModel)]="ticket.hora" name="hora" required>
+                    <option value="" disabled selected>Selecciona un horario</option>
+                    <option value="10:00">10:00</option>
+                    <option value="12:00">12:00</option>
+                    <option value="15:00">15:00</option>
+                    <option value="18:00">18:00</option>
+                    <option value="20:00">20:00</option>
+                    <option value="21:00">21:00</option>
+                    <option value="22:00">22:00</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="numeroBoletos">Número de Boletos</label>
+                <input type="number" id="numeroBoletos" [(ngModel)]="ticket.numeroBoletos" name="numeroBoletos" placeholder="Número de boletos" min="1" required>
+            </div>
+            <div class="form-group">
+                <label for="precio">Precio</label>
+                <input type="text" id="precio" [value]="ticket.precio | number:'1.2-2'" readonly class="price" placeholder="Precio total">
+            </div>
+            <div class="form-group">
+                <label for="nombreCliente">Nombre Completo / Tal cual figura en el INE</label>
+                <input type="text" id="nombreCliente" [(ngModel)]="ticket.nombreCliente" name="nombreCliente" placeholder="Tu nombre completo" required>
+            </div>
+            <div class="form-group">
+                <label for="correo">Correo</label>
+                <input type="email" id="correo" [(ngModel)]="ticket.correo" name="correo" placeholder="Tu correo" required>
+            </div>
+            <div class="form-group">
+                <label for="fecha">Fecha</label>
+                <input type="date" id="fecha" [(ngModel)]="ticket.fecha" name="fecha" required>
+            </div>
+            <button type="submit">COMPRAR</button>
+        </form>
+    </div>
+</body>
+</html>
